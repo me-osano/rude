@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 authors = ["Enosh"]
 description = "A high-performance async download engine combining the best of aria2 and Surge"
-repository = "https://github.com/your/rude"
+repository = "https://github.com/me-osano/rude"
 license = "MIT"
 
 [[bin]]

@@ -177,7 +177,7 @@ secret  = "your-token"  # optional
 
 ```nix
 # flake.nix inputs
-inputs.rude.url = "github:yourname/rude";
+inputs.rude.url = "github:me-osano/rude";
 
 # home.nix
 { inputs, pkgs, ... }:
