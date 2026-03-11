@@ -236,3 +236,7 @@ src/
 └── cli/
     └── mod.rs               clap CLI (daemon / add / status / ...)
 ```
+
+## 📄 License
+
+MIT License - see [LICENSE](./LICENSE) for details.
