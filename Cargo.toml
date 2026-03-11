@@ -1,0 +1,92 @@
+[package]
+name = "rude"
+version = "0.1.0"
+edition = "2021"
+authors = ["Enosh"]
+description = "A high-performance async download engine combining the best of aria2 and Surge"
+repository = "https://github.com/your/rude"
+license = "MIT"
+
+[[bin]]
+name = "rude"
+path = "src/main.rs"
+
+[lib]
+name = "rude_core"
+path = "src/lib.rs"
+
+[dependencies]
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+tokio-util = { version = "0.7", features = ["codec", "io"] }
+
+# HTTP client
+reqwest = { version = "0.11", features = ["stream", "json", "rustls-tls", "gzip", "brotli", "deflate"], default-features = false }
+reqwest-middleware = "0.2"
+reqwest-retry = "0.3"
+
+# Async utilities
+futures = "0.3"
+futures-util = "0.3"
+async-trait = "0.1"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+
+# RPC server
+axum = { version = "0.7", features = ["ws"] }
+tower = "0.4"
+tower-http = { version = "0.5", features = ["cors", "trace"] }
+
+# CLI
+clap = { version = "4", features = ["derive", "env"] }
+
+# Logging & tracing
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+# Error handling
+anyhow = "1"
+thiserror = "1"
+
+# Concurrency / data structures
+dashmap = "5"
+tokio-stream = "0.1"
+crossbeam-channel = "0.5"
+
+# URL parsing
+url = "2"
+
+# File I/O
+tempfile = "3"
+libc = "0.2"
+nix = { version = "0.28", features = ["fs"] }
+
+# Hashing / integrity
+sha2 = "0.10"
+sha1 = "0.10"
+md-5 = "0.10"
+digest = "0.10"
+hex = "0.4"
+
+# UUIDs
+uuid = { version = "1", features = ["v4"] }
+
+# Time
+chrono = { version = "0.4", features = ["serde"] }
+
+# Config file
+dirs = "5"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full", "test-util"] }
+wiremock = "0.5"
+tempfile = "3"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
